@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rose: #e8748a;
+    --blush: #f4a7b6;
+    --petal: #fce4ec;
+    --lavender: #c9a0dc;
+    --mauve: #9b59b6;
+    --peach: #ffb997;
+    --gold: #d4a853;
+    --gold-light: #f0d080;
+    --cream: #fff8f0;
+    --deep: #3d1a2e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  
+  #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+  .particle {
+    position: absolute;
+    font-size: 14px;
+    opacity: 0;
+    animation: floatUp linear infinite;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.3; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 6rem;
+    background: linear-gradient(160deg, #fff0f5 0%, #fce4ec 30%, #ede0ff 65%, #fff8e8 100%);
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(232,116,138,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 35% at 80% 75%, rgba(201,160,220,.22) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 60% 10%, rgba(255,185,151,.15) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .hero > * { position: relative; z-index: 1; }
+
+  .portrait-wrapper {
+    position: relative;
+    width: 220px; height: 220px;
+    margin: 0 auto 2.5rem;
+  }
+  .portrait-ring {
+    position: absolute; inset: -8px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--rose), var(--lavender), var(--gold), var(--peach), var(--rose));
+    animation: spinRing 6s linear infinite;
+    filter: blur(1px);
+  }
+  @keyframes spinRing { to { transform: rotate(360deg); } }
+
+  .portrait-glow {
+    position: absolute; inset: -18px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,116,138,.35) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1);opacity:.7} 50%{transform:scale(1.08);opacity:1} }
+
+  .portrait-img {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 40px rgba(232,116,138,.4), 0 2px 10px rgba(0,0,0,.08);
+    background: linear-gradient(135deg, #fce4ec, #ede0ff);
+    overflow: hidden; /* Added to keep image inside circle */
+  }
+
+  .portrait-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the circle perfectly */
+  }
+
+  .hero-date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.7);
+    border: 1px solid rgba(232,116,138,.3);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--deep);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 20px rgba(232,116,138,.2);
+  }
+  .hero h1 span { color: var(--rose); }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+    color: #7a4060;
+    max-width: 480px;
+    line-height: 1.7;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin: 1.5rem 0;
+    opacity: .55;
+  }
+  .hero-divider span { color: var(--gold); font-size: 18px; }
+  .hero-divider::before,.hero-divider::after {
+    content: '';
+    width: 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .hero-divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: .5; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--rose);
+    animation: bobDown 2s ease-in-out infinite;
+  }
+  @keyframes bobDown { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+  .scroll-hint::after { content: '↓'; font-size: 16px; }
+
+  
+  section { position: relative; z-index: 1; }
+
+  .section-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+ 
+  .quote-strip {
+    background: linear-gradient(135deg, #3d1a2e 0%, #5c2a48 50%, #3d1a2e 100%);
+    overflow: hidden;
+  }
+  .quote-strip .section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 5rem 2rem;
+  }
+  .quote-item {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .quote-item.visible { opacity: 1; transform: none; }
+  .quote-item p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: #fce4ec;
+    line-height: 1.75;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .quote-item::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: .5;
+    color: var(--rose);
+    opacity: .4;
+    display: block;
+    margin-bottom: .5rem;
+  }
+
+ 
+  .gallery-section {
+    background: linear-gradient(180deg, #fff0f7 0%, #f3e8ff 100%);
+  }
+  .gallery-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .7s, transform .7s;
+  }
+  .gallery-title.visible { opacity: 1; transform: none; }
+  .gallery-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--deep);
+  }
+  .gallery-title p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: #9b6080;
+    font-size: 1.1rem;
+    margin-top: .5rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .gallery-card {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    position: relative;
+    box-shadow: 0 6px 30px rgba(155,59,182,.15);
+    opacity: 0;
+    transform: scale(.92) translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+    cursor: pointer;
+  }
+  .gallery-card.visible { opacity: 1; transform: none; }
+  .gallery-card:hover { transform: scale(1.03) translateY(-4px); box-shadow: 0 12px 40px rgba(155,59,182,.25); transition: transform .3s, box-shadow .3s, opacity .6s; }
+
+  .gallery-card .placeholder {
+    width: 100%; height: 100%;
+    position: relative;
+    transition: transform .4s;
+  }
+  
+
+  .gallery-card .placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-card:hover .placeholder { transform: scale(1.08); }
+  
+  .gallery-card .label-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+  }
+  
+  .gallery-card .label-overlay small {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: .8rem;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(61,26,46,.55) 100%);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .gallery-card:hover .gallery-overlay { opacity: 1; }
+
+  
+  .love-letter {
+    background: linear-gradient(160deg, #fff8f0 0%, #fce4ec 40%, #f0e8ff 100%);
+  }
+  .letter-box {
+    background: rgba(255,255,255,.7);
+    border: 1px solid rgba(232,116,138,.25);
+    border-radius: 28px;
+    padding: 3.5rem clamp(1.5rem, 5vw, 4rem);
+    box-shadow: 0 12px 60px rgba(232,116,138,.12), 0 2px 8px rgba(0,0,0,.04);
+    opacity: 0; transform: translateY(30px);
+    transition: opacity .9s, transform .9s;
+    backdrop-filter: blur(12px);
+  }
+  .letter-box.visible { opacity: 1; transform: none; }
+
+  .letter-stamp {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--lavender));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 2rem;
+    box-shadow: 0 4px 20px rgba(232,116,138,.4);
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .letter-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    text-align: center;
+    color: var(--deep);
+    margin-bottom: 2rem;
+  }
+
+  .letter-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 2;
+    color: #4a2035;
+    margin-bottom: 1.4rem;
+    font-weight: 300;
+  }
+
+  .letter-sig {
+    text-align: right;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--rose);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(232,116,138,.25);
+  }
+
+ 
+  .traits-section {
+    background: linear-gradient(135deg, #ede0ff 0%, #fce4ec 100%);
+  }
+  .traits-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .7s, transform .7s;
+  }
+  .traits-title.visible { opacity: 1; transform: none; }
+  .traits-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--deep);
+  }
+
+  .traits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .trait-card {
+    background: rgba(255,255,255,.65);
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 20px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(155,90,182,.1);
+    opacity: 0; transform: translateY(25px);
+    transition: opacity .6s, transform .6s;
+  }
+  .trait-card.visible { opacity: 1; transform: none; }
+  .trait-card:hover { transform: translateY(-5px); box-shadow: 0 10px 35px rgba(155,90,182,.2); transition: transform .3s, box-shadow .3s; }
+  .trait-icon { font-size: 2.2rem; margin-bottom: .8rem; display: block; }
+  .trait-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--deep); margin-bottom: .4rem; }
+  .trait-card p { font-size: .85rem; color: #7a4060; line-height: 1.6; }
+
+  
+  .final-quote {
+    background: linear-gradient(160deg, #3d1a2e 0%, #6b2d5e 50%, #3d1a2e 100%);
+    text-align: center;
+    padding: 6rem 2rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .final-quote::before {
+    content: '❤';
+    position: absolute;
+    font-size: 300px;
+    opacity: .04;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--rose);
+  }
+  .final-quote h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    color: #fce4ec;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+    position: relative;
+    opacity: 0; transform: translateY(25px);
+    transition: opacity .9s, transform .9s;
+  }
+  .final-quote h2.visible { opacity: 1; transform: none; }
+  .final-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(252,228,236,.6);
+    font-size: 1.1rem;
+    position: relative;
+  }
+
+
+  footer {
+    background: #2a0e1e;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    color: rgba(252,228,236,.5);
+    font-size: .85rem;
+    letter-spacing: 1.5px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+  }
+  footer strong { color: var(--rose); font-weight: 400; }
+  footer .crown { color: var(--gold); font-size: 1.1rem; }
+
+
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+
+  @media(max-width: 500px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .traits-grid  { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media(max-width: 480px) {
+    .hero {
+      padding: 3rem 1.25rem 5rem;
+      min-height: 100svh;
+    }
+
+    .portrait-wrapper {
+      width: 170px; height: 170px;
+      margin-bottom: 1.8rem;
+    }
+    .portrait-img {
+      width: 170px; height: 170px;
+    }
+
+    .hero-date-badge {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      padding: 5px 14px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+
+    .hero-divider::before,
+    .hero-divider::after {
+      width: 50px;
+    }
+
+    .section-inner {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .quote-strip .section-inner {
+      gap: 2.5rem;
+      padding: 3.5rem 1.25rem;
+    }
+
+    .quote-item p {
+      font-size: 1.05rem;
+    }
+
+    .quote-item::before {
+      font-size: 3.5rem;
+    }
+
+    .gallery-title h2 {
+      font-size: 1.6rem;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .traits-title h2 {
+      font-size: 1.6rem;
+    }
+
+    .traits-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .trait-card {
+      padding: 1.2rem 1rem;
+    }
+
+    .trait-icon {
+      font-size: 1.8rem;
+    }
+
+    .letter-box {
+      padding: 2.5rem 1.25rem;
+      border-radius: 20px;
+    }
+
+    .letter-box h2 {
+      font-size: 1.5rem;
+    }
+
+    .letter-box p {
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .letter-stamp {
+      width: 56px; height: 56px;
+      font-size: 22px;
+    }
+
+    .final-quote {
+      padding: 4rem 1.25rem;
+    }
+
+    .final-quote h2 {
+      font-size: 1.3rem;
+    }
+
+    .final-quote::before {
+      font-size: 180px;
+    }
+
+    footer {
+      font-size: .78rem;
+      letter-spacing: 1px;
+      padding: 2rem 1.25rem;
+    }
+  }
+
+  @media(max-width: 360px) {
+    .portrait-wrapper {
+      width: 150px; height: 150px;
+    }
+    .portrait-img {
+      width: 150px; height: 150px;
+    }
+
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .gallery-grid,
+    .traits-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .trait-card p {
+      font-size: .78rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<section class="hero">
+  <div class="portrait-wrapper">
+    <div class="portrait-glow"></div>
+    <div class="portrait-ring"></div>
+    <div class="portrait-img">
+        <img src="pic1.jpg" alt="Her Portrait">
+    </div>
+  </div>
+
+  <div class="hero-date-badge">✦ April 14th ✦ Born to Be Loved ✦</div>
+
+  <h1>Happy Birthday<br><span>My Love</span> ❤️</h1>
+
+  <div class="hero-divider"><span>✦</span></div>
+
+  <p class="hero-sub">
+    Born on April 14th… but loving you<br>
+    is the most <em>real</em> thing in my life.
+  </p>
+
+  <div class="scroll-hint">scroll</div>
+</section>
+
+
+<section class="quote-strip">
+  <div class="section-inner">
+    <div class="quote-item">
+      <p>You walked into my life quietly…<br>and became my loudest happiness.</p>
+    </div>
+    <div class="quote-item">
+      <p>In a world full of temporary things,<br>you are my forever.</p>
+    </div>
+    <div class="quote-item">
+      <p>Every moment with you feels like a beautiful dream<br>I never want to wake up from.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="gallery-section">
+  <div class="section-inner">
+    <div class="gallery-title">
+      <h2>Beautiful Princess</h2>
+      <p>Every picture tells a story…</p>
+    </div>
+
+    <div class="gallery-grid" id="gallery"></div>
+  </div>
+</section>
+
+
+<section class="traits-section">
+  <div class="section-inner">
+    <div class="traits-title">
+      <h2>Everything You Are To Me</h2>
+    </div>
+    <div class="traits-grid">
+      <div class="trait-card"><span class="trait-icon">🌹</span><h3>My Peace</h3><p>In your arms the world goes quiet and nothing else matters.</p></div>
+      <div class="trait-card"><span class="trait-icon">✨</span><h3>My Light</h3><p>You brighten even the darkest corners of my days.</p></div>
+      <div class="trait-card"><span class="trait-icon">🌙</span><h3>My Dream</h3><p>You are the beautiful thought I fall asleep to every night.</p></div>
+      <div class="trait-card"><span class="trait-icon">💫</span><h3>My Strength</h3><p>Knowing you believe in me gives me courage for everything.</p></div>
+      <div class="trait-card"><span class="trait-icon">🦋</span><h3>My Joy</h3><p>Your laughter is the most wonderful sound in the universe.</p></div>
+      <div class="trait-card"><span class="trait-icon">👑</span><h3>My Queen</h3><p>You deserve every beautiful thing this world has to offer.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="love-letter">
+  <div class="section-inner">
+    <div class="letter-box">
+      <div class="letter-stamp">💌</div>
+      <h2>A Letter From My Heart</h2>
+
+      <p>My love,today the world celebrates you and I want you to know that you are the greatest gift I have ever received.Not just on this day,but on every ordinary morning when I get to wake up knowing you exist.</p>
+
+      <p>You have this rare, extraordinary way of making everything feel warmer. The way you laugh at something small.The way your eyes light up when you talk about something you love. The way you make the most mundane moments feel like magic just by being present in them.</p>
+
+      <p>People say April 1st is a day of tricks and laughter and you are that, too. You surprised me. You walked into my life when I least expected it and turned it into something I could have never imagined on my own.That is the only kind of April Fool's joke I'll ever be grateful for.</p>
+
+      <p>You are not just someone I love you are someone I admire deeply.Your kindness, your strength, your gentle heart,the way you carry yourself with such grace… these are things I think about and feel profoundly lucky to witness every day.</p>
+
+      <p>Today, on your birthday,I celebrate not just the day you were born,but everything you are and everything you bring to this world.You make it more beautiful simply by being in it.</p>
+
+      <p>Happy birthday,my love.May every year ahead be filled with the kind of joy you so generously give to everyone around you.</p>
+
+      <div class="letter-sig">Always and forever yours ❤️</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="final-quote">
+  <h2 id="finalH">"Some things in life are so real, so deep, so undeniable — you are one of them."</h2>
+  <p>Happy Birthday, my forever person 🌸</p>
+</section>
+
+
+<footer>
+  <p>Made with <strong>love ❤️</strong> just for you &nbsp;·&nbsp; <strong>Happy Birthday my queen</strong> <span class="crown">👑</span></p>
+</footer>
+
+
+<script>
+/* ─── Particles ─── */
+const container = document.getElementById('particles');
+const emojis = ['❤️','💖','✨','🌸','💕','💫','🌹','💗'];
+for (let i = 0; i < 28; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  p.style.cssText = `
+    left:${Math.random()*100}%;
+    font-size:${10 + Math.random()*14}px;
+    animation-duration:${8 + Math.random()*14}s;
+    animation-delay:${Math.random()*12}s;
+  `;
+  container.appendChild(p);
+}
+
+
+const memories = [
+  { url: 'pic7.jpg', bg: 'linear-gradient(135deg,#f8b4c8,#e8d5f5)', label: 'The happy doll' },
+  { url: 'pic2.jpg', bg: 'linear-gradient(135deg,#ffd89b,#f8a5c2)', label: 'Golden Afternoon' },
+  { url: 'pic3.jpg', bg: 'linear-gradient(135deg,#a18cd1,#fbc2eb)', label: 'Starry queen' },
+  { url: 'pic4.jpeg', bg: 'linear-gradient(135deg,#fd9a9a,#fccb90)', label: 'Spring Garden' },
+  { url: 'pic5.jpeg', bg: 'linear-gradient(135deg,#c9a0dc,#f7c5d0)', label: 'Smiling monster' },
+  { url: 'pic6.jpg', bg: 'linear-gradient(135deg,#a1c4fd,#c2e9fb)', label: 'Holishit Days' },
+  
+];
+
+const grid = document.getElementById('gallery');
+memories.forEach((m, i) => {
+  const card = document.createElement('div');
+  card.className = 'gallery-card';
+  card.style.transitionDelay = (i * 0.08) + 's';
+  card.innerHTML = `
+    <div class="placeholder" style="background:${m.bg}">
+      <img src="${m.url}" alt="${m.label}">
+      <div class="label-overlay"><small>${m.label}</small></div>
+    </div>
+    <div class="gallery-overlay"></div>
+  `;
+  grid.appendChild(card);
+});
+
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(
+  '.quote-item, .gallery-title, .gallery-card, .letter-box, .traits-title, .trait-card, #finalH'
+).forEach(el => observer.observe(el));
+
+
+document.querySelectorAll('.trait-card').forEach((c, i) => {
+  c.style.transitionDelay = (i * 0.1) + 's';
+});
+</script>
+</body>
+</html>
